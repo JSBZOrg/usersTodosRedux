@@ -2,12 +2,16 @@ import dd from 'ddeyes'
 import toolFunc from '../../../src/utils/helper'
 import * as services from '../../../src/services/todos'
 
-create = (company, main, location) =>
+create = (company, main, location, userObjectId) =>
   data = await services.lc.create toolFunc
   ,
     company: company
     main: main
     location: location
+    user:
+      __type: 'Pointer'
+      className: "_User"
+      objectId: userObjectId
   data
 
 fetch = (objectId) =>

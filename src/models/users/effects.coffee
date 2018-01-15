@@ -41,11 +41,10 @@ export default ({
 
     # 将不敏感的用户信息和加密后的用户敏感信息放入store
     storeData = 
-      login:
-        user:
-          data
-        jwt:
-          result
+      user:
+        data
+      jwt:
+        result
 
     if data?
       yield put 
@@ -73,11 +72,10 @@ export default ({
       delete data.sessionToken
 
     params = 
-      login:
-        user:
-          data
-        jwt:
-          payload.old_token  
+      user:
+        data
+      jwt:
+        payload.old_token  
 
     if data?
       yield put 
@@ -91,9 +89,7 @@ export default ({
     return
   
   fetchAllUserInfo: (
-    {
-      payload
-    }
+    { payload }
     { put }
   ) ->
     data = yield services.lc.fetchAllUserInfo toolFuc
@@ -108,15 +104,15 @@ export default ({
       yield payload.callback.success data
     else
       yield payload.callback.fail 'fetchAllUserInfo error'
+
     return
 
   verUserEmail: (
-    {
-      payload
-    }
+    { payload }
     { put }
   ) ->
     data = yield services.lc.verUserEmail toolFuc
+
     if data?
       yield put 
         type: type.save
@@ -126,17 +122,17 @@ export default ({
       yield payload.callback.success data
     else
       yield payload.callback.fail 'verUserEmail error'
+
     return
 
   resetUserPsdWithEmail: (
-    {
-      payload
-    }
+    { payload }
     { put }
   ) ->
     data = yield services.lc.resetUserPsdWithEmail toolFuc
     ,
       payload.data
+
     if data?
       yield put 
         type: type.save
@@ -146,17 +142,17 @@ export default ({
       yield payload.callback.success data
     else
       yield payload.callback.fail 'resetUserPsdWithEmail error'
+
     return
   
   resetUserPsd: (
-    {
-      payload
-    }
+    { payload }
     { put }
   ) ->
     data = yield services.lc.resetUserPsd toolFuc
     ,
       payload.data
+
     if data?
       yield put 
         type: type.save
@@ -166,17 +162,17 @@ export default ({
       yield payload.callback.success data
     else
       yield payload.callback.fail 'resetUserPsd error'
+
     return
   
   updateUserInfo: (
-    {
-      payload
-    }
+    { payload }
     { put }
   ) ->
     data = yield services.lc.updateUserInfo toolFuc
     ,
       payload.data
+
     if data?
       yield put 
         type: type.save
@@ -186,46 +182,47 @@ export default ({
       yield payload.callback.success data
     else
       yield payload.callback.fail 'updateUserInfo error'
+
     return
 
   resetUserSessionToken: (
-    {
-      payload
-    }
+    { payload }
     { put }
   ) ->
     data = yield services.lc.resetUserSessionToken toolFuc
     ,
       payload.data
+
     if data?
       yield put 
         type: type.save
         payload: {
-          users:data
+          users: data
         }
       yield payload.callback.success data
     else
       yield payload.callback.fail 'resetUserSessionToken error'
+
     return
   
   deleteUser: (
-    {
-      payload
-    }
+    { payload }
     { put }
   ) ->
     data = yield services.lc.deleteUser toolFuc
     ,
       payload.data
+
     if data?
       yield put 
         type: type.save
         payload: {
-          users:data
+          users: data
         }
       yield payload.callback.success data
     else
       yield payload.callback.fail 'deleteUser error'
+
     return
   
   refreshToken: (
@@ -237,4 +234,5 @@ export default ({
       payload: {
         users: payload.data
       }
+
     return

@@ -36,10 +36,8 @@ target.reducers = =>
   todoRemoveAll()
   
 target.sagas = =>
-  data = await todoCreate '陈奕迅'
-  data1 = await todoCreate 'haoya'
-  # await todoFetch true
+  data = await todoCreate '陈奕迅', '5a582b6744d904006a95cc26'
+  data1 = await todoCreate 'haoya', '5a582b6744d904006a95cc26'
   await todoUpdate data.objectId, '陈奕迅', true
   await todoFetchAll()
-  # await todoFetch false
   await todoDelete data1.objectId

@@ -1,6 +1,7 @@
 import dd from 'ddeyes'
 import isEqual from 'is-equal'
-import * as store from '../../../src/store/all'
+import * as store from '../../../src/store/merge'
+import { verify } from '../../../src/utils/jwt'
 
 {
   constants
@@ -26,24 +27,26 @@ myStore = getStore {
     async: subscriber
 }
 
-todoCreate = (todo, userObjectId) =>
+userLogin = (username, password) =>
   new Promise (resolve, reject) =>
-    myStore.dispatch actions.todoCreate 
-      todo: todo
-      user:
-        __type: 'Pointer'
-        className: "_User"
-        objectId: userObjectId
+    myStore.dispatch actions.userLogin
+      username: username
+      password: password
       callback:
         success: (data) =>
           resolve data
         fail: (data) =>
           reject data
 
-todoFetch = (isCompleted) =>
+todoCreate = (todo) =>
+  objectId = verify(myStore.getState().userTodoApp.login.jwt).objectId
   new Promise (resolve, reject) =>
-    myStore.dispatch actions.todoFetch
-      isCompleted: isCompleted
+    myStore.dispatch actions.todoCreate 
+      todo: todo
+      user:
+        __type: 'Pointer'
+        className: "_User"
+        objectId: objectId
       callback:
         success: (data) =>
           resolve data
@@ -62,33 +65,13 @@ todoUpdate = (objectId, todo, isCompleted) =>
         fail: (data) =>
           reject data
 
-todoFetchAll = =>
-  new Promise (resolve, reject) =>
-    myStore.dispatch actions.todoFetchAll
-      data: ''
-      callback:
-        success: (data) =>
-          resolve data
-        fail: (data) =>
-          reject data
-
 todoDelete = (objectId) =>
   myStore.dispatch actions.todoDelete
     objectId: objectId
 
-getIds = (data) =>
-  data.reduce (r, c) =>
-    [
-      r...
-      c.objectId
-    ]
-  , []
-
 export {
+  userLogin
   todoCreate
-  todoFetch
-  todoFetchAll
   todoUpdate
   todoDelete
-  getIds
 }

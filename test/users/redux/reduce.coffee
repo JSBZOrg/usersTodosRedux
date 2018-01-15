@@ -1,6 +1,6 @@
 import dd from 'ddeyes'
 import uuid from '../../../src/utils/randomId'
-import * as store from '../../../src/store/users'
+import * as store from '../../../src/store/all'
 
 {
   constants

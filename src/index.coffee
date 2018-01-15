@@ -1,6 +1,6 @@
 import * as models from '../src/models'
 import * as services from '../src/services'
-import * as store from '../src/store'
+import { store } from '../src/store'
 import todosConfig from '../src/services/todos/config'
 import usersConfig from '../src/services/users/config'
 import toolFunc from '../src/utils/helper'

@@ -1,6 +1,6 @@
 import dd from 'ddeyes'
 import isEqual from 'is-equal'
-import * as store from '../../../src/store/users'
+import * as store from '../../../src/store/all'
 import { 
   verify
   refreshToken
@@ -23,7 +23,7 @@ subscriber = (
   return dd myStore.getState() if not isEqual prevState, nextState
   
 myStore = getStore {
-  appName: 'todosApp'
+  appName: 'userTodoApp'
   sagas
   reducers
   subscriber:

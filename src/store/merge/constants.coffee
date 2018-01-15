@@ -2,7 +2,22 @@ import { toActionsTypes } from 'cfx.redux-types'
 
 export default toActionsTypes {
 
-  # SAGAS
+  # TODO SAGAS
+  'TODO_CREATE'
+  'TODO_UPDATE'
+  'TODO_DELETE'
+  'TODO_DELETE_ALL'
+  'TODO_FETCH'
+  'TODO_FETCH_ALL'
+
+  # TODO REDUCE
+  'TODO_SAVE'
+  'TODO_PATCH'
+  'TODO_RELOAD'
+  'TODO_REMOVE'
+  'TODO_REMOVE_ALL'
+
+  # USER SAGAS
   'USER_REFRESH_TOKEN'
   'USER_SIGNUP'
   'USER_LOGIN'
@@ -15,11 +30,11 @@ export default toActionsTypes {
   'USER_UPDATE'
   'USER_DELETE'
 
-  # REDUCE
-  'USER_SAVE'
+  # USER REDUCE
+  'USER_SAVE'  
   'USER_PATCH'
   'USER_RELOAD'
   'USER_REMOVE'
   'USER_REMOVE_ALL'
-  
+
 }

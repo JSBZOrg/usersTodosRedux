@@ -1,7 +1,5 @@
-import * as TodoStore from '../store/todos'
-import * as UserStore from '../store/users'
+import * as store from '../store/merge'
 
 export {
-  TodoStore
-  UserStore
+  store
 }

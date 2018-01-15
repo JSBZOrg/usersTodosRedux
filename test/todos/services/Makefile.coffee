@@ -11,21 +11,21 @@ import {
 
 target.all = =>
   target.addOne()
-  target.fetchOne()
-  target.reload()
-  target.patch()
-  target.remove()
+  # target.fetchOne()
+  # target.reload()
+  # target.patch()
+  # target.remove()
 
 target.addOne = =>
-  create('哈哈哈', '哈哈哈', '哈哈哈')
+  create('哈哈哈', '哈哈哈', '哈哈哈', '5a582b6744d904006a95cc26')
     .then (result) =>
       dd result
     
 target.addMore = =>
-  create('哈哈哈', '哈哈哈', '哈哈哈')
+  create('哈哈哈', '哈哈哈', '哈哈哈', '5a582b6744d904006a95cc26')
     .then (result) =>
       dd result
-  create('啦啦啦', '啦啦啦', '啦啦啦')
+  create('啦啦啦', '啦啦啦', '啦啦啦', '5a582b6744d904006a95cc26')
     .then (result) =>
       dd result
 

@@ -28,8 +28,6 @@ refreshToken = (user, old_token) =>
       jwt:
         newToken
 
-
-
 export {
   token
   verify
